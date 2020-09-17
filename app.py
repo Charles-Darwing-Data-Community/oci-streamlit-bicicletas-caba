@@ -9,3 +9,10 @@ DATA_URL = ("https://cdn.buenosaires.gob.ar/datosabiertos/datasets/transporte/bi
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
     return data
+
+#Mensaje de espera
+df_state =  st.text("Se están cargando los datos...")
+
+#Se cargan solo 10000
+@st.cache
+data = load_data(10000)
